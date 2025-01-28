@@ -2,23 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Square of number</title>
+    <title>Square of Number</title>
 </head>
 <body>
-    <h1><strong>Calculate square of number</strong></h1>
-    <form action="/calculate" method="post">
-        <label for="number">Enter number:</label>
-        <input type="number" id="number" name="number" required>
-        <button type="submit">Calculate</button>
-    </form>
-    {% if result %}
-    <h2>Result: {{ result }}</h2>
-    <a href="/">Back to main page</a>
-    {% endif %}
+    <h1><strong>Calculate Square of Number</strong></h1>
 
-    <p></p>
+    <form method="POST">
+        <label for="start">Interval Start:</label>
+        <input type="number" id="start" name="start" required>
+
+        <label for="end">Interval Finish:</label>
+        <input type="number" id="end" name="end" required>
+
+        <label for="operation">Choose operation:</label>
+        <select id="operation" name="operation">
+            <option value="sin">Sin</option>
+            <option value="cos">Cos</option>
+            <option value="tan">Tan</option>
+            <option value="square">Square</option>
+            <option value="sqr">Square Root</option>
+        </select>
+
+        <button type="submit">Plot</button>
+    </form> 
+
+    {% if result %}
     <div style="width: 200px">
-        <img src="static/images/test.webp" width="200">
+        <img src="static/images/plot.jpeg" alt="Plot result" width="600">
     </div>
+    {% endif %}
 </body>
 </html>
