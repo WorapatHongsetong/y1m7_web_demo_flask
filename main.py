@@ -4,8 +4,8 @@ from flask import render_template
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def home_page():
+    return render_template("index.html")
 
 @app.route("/sumsq/<int:value1>/<int:value2>")
 def sumsq(value1, value2):
@@ -14,11 +14,5 @@ def sumsq(value1, value2):
     sum_of_sq = value1_sq + value2_sq
     return f"<p>Sum of 2 squares is {sum_of_sq}.</p>"
 
-@app.route("/page")
-def page():
-    return render_template("index.html")
-
-    
-
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
