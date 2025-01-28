@@ -8,20 +8,33 @@
     <h1><strong>Calculate Square of Number</strong></h1>
 
     <form method="POST">
-        <label for="start">Interval Start:</label>
+        <label for="start">Interval from:*</label>
         <input type="number" id="start" name="start" required>
 
-        <label for="end">Interval Finish:</label>
+        <label for="end">to*</label>
         <input type="number" id="end" name="end" required>
+        <br>
 
-        <label for="operation">Choose operation:</label>
-        <select id="operation" name="operation">
-            <option value="sin">Sin</option>
-            <option value="cos">Cos</option>
-            <option value="tan">Tan</option>
-            <option value="square">Square</option>
-            <option value="sqr">Square Root</option>
-        </select>
+        <label for="colour">colour</label>
+        <input type="str" id="colour" name="colour">
+
+        <br>
+
+        <label>
+            <input type="checkbox" name="operation" value="sin"> Sin
+        </label><br>
+        <label>
+            <input type="checkbox" name="operation" value="cos"> Cos
+        </label><br>
+        <label>
+            <input type="checkbox" name="operation" value="tan"> Tan
+        </label><br>
+        <label>
+            <input type="checkbox" name="operation" value="square"> Square
+        </label><br>
+        <label>
+            <input type="checkbox" name="operation" value="sqr"> Square Root
+        </label><br>
 
         <button type="submit">Plot</button>
     </form> 

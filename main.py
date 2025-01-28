@@ -20,23 +20,33 @@ def plotter():
     if request.method == 'POST':
         start = request.form.get('start', type=float)
         end = request.form.get('end', type=float)
-        operation = request.form.get('operation')
+        colour = request.form.get('colour', type=str)
+
+        if colour == "" or colour == None:
+            colour = "#9adfe6"
+        
+        operations = []
+        operations = request.form.getlist('operation')
 
         data = None
-        if operation == 'sin':
-            data = ploter.sine(start, end)
-        elif operation == 'cos':
-            data = ploter.cosine(start, end)
-        elif operation == 'tan':
-            data = ploter.tangent(start, end)
-        elif operation == 'square':
-            data = ploter.square(start, end)
-        elif operation == 'sqr':
-            data = ploter.sqrt(start, end)
-        if data:
-            ploter.plot(data)
-        return render_template('plotter.html', result=True)
-    return render_template('plotter.html', result=False)
+
+        if len(operations) == 1:
+            if operations[0] == 'sin':
+                data = ploter.sine(start, end)
+            elif operations[0] == 'cos':
+                data = ploter.cosine(start, end)
+            elif operations[0] == 'tan':
+                data = ploter.tangent(start, end)
+            elif operations[0] == 'square':
+                data = ploter.square(start, end)
+            elif operations[0] == 'sqr':
+                data = ploter.sqrt(start, end)
+            if data:
+                ploter.plot(data, c=colour)
+        if len(operations) > 1:
+            ploter.plot_s(operations, start, end, c=colour)
+
+    return render_template('plotter.html', result=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
