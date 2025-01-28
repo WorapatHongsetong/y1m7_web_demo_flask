@@ -14,5 +14,10 @@ def sumsq(value1, value2):
     sum_of_sq = value1_sq + value2_sq
     return f"<p>Sum of 2 squares is {sum_of_sq}.</p>"
 
+@app.route("/plotter")
+def plotter():
+    return render_template("plotter.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
